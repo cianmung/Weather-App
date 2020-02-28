@@ -1,0 +1,17 @@
+.weather-display-container {
+  justify-content: center;
+}
+
+.weather-display-container-inner {
+  margin-top: 30px;
+}
+
+.weather-display-container-inner-text {
+  justify-content: center;
+}
+
+.weather-display-container,
+.weather-display-container-inner-text,
+.weather-of-each-city-container {
+  display: flex;
+}

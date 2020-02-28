@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import axios from "axios";
 import WeatherDisplay from "./WeatherDisplay";
+import "./css/GetCityWeather.css";
 
 function GetCityWeather(props) {
   const [cityId, setCityId] = useState(0);
@@ -78,7 +79,7 @@ function GetCityWeather(props) {
   }
   return (
     <div>
-      <Form style={{ width: "50%", display: "flex", margin: "10px" }}>
+      <Form className="search-bar-container">
         <input style={{ display: "none" }} />
         <Form.Control
           name="cityName"

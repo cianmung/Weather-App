@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import WeatherOfEachCity from "./WeatherOfEachCity";
+import "./css/WeatherDisplay.css";
 
 class WeatherDisplay extends Component {
   state = {
@@ -9,13 +10,13 @@ class WeatherDisplay extends Component {
     this.state.data = this.props.weatherData;
     return (
       <React.Fragment>
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div className="weather-display-container">
           {this.state.data.length !== 0 ? (
-            <div style={{ marginTop: "30px" }}>
-              <h1 style={{ display: "flex", justifyContent: "center" }}>
+            <div className="weather-display-container-inner">
+              <h1 className="weather-display-container-inner-text">
                 Weather conditions
               </h1>
-              <div style={{ display: "flex" }}>
+              <div className="weather-of-each-city-container">
                 {this.state.data.map(map => (
                   <WeatherOfEachCity
                     key={map.id}
