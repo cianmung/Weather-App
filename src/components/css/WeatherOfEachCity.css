@@ -56,3 +56,7 @@
 .weather-condition {
   float: right;
 }
+
+.refresh-time-container {
+  font-size: 15px;
+}

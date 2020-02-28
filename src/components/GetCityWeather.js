@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import axios from "axios";
 import WeatherDisplay from "./WeatherDisplay";
@@ -26,7 +26,7 @@ function GetCityWeather(props) {
       return "Snow.gif";
     } else if (weatherId >= 700 && weatherId < 800) {
       return "Atmosphere.jpg";
-    } else if (weatherId == 800) {
+    } else if (weatherId === 800) {
       return "Clear.gif";
     } else if (weatherId > 800 && weatherId < 900) {
       return "Clouds.jpg";
@@ -99,8 +99,8 @@ function GetCityWeather(props) {
         eachData.id = id;
         eachData.city = res.data.name;
         eachData.temp = parseInt(res.data.main.temp - 273); //Convert Kelvin to Celsius
-        eachData.condition = res.data.weather[0].main;
-        //eachData.condition = "updated";
+        //eachData.condition = res.data.weather[0].main;
+        eachData.condition = "updated";
         eachData.weatherId = res.data.weather[0].id;
         eachData.weatherDescription = res.data.weather[0].description;
         eachData.weatherIconId = res.data.weather[0].icon;
