@@ -17,12 +17,14 @@ class WeatherDisplay extends Component {
                 Weather conditions
               </h1>
               <div className="weather-of-each-city-container">
-                {this.state.data.map(map => (
+                {this.state.data.map((each, index) => (
                   <WeatherOfEachCity
-                    key={map.id}
-                    eachCityData={map}
+                    key={each.id}
+                    eachCityData={each}
                     handleClose={this.props.handleClose}
                     handleImg={this.props.handleImg}
+                    handleRefresh={this.props.handleRefresh}
+                    index={index}
                   />
                 ))}
               </div>

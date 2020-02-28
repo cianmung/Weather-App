@@ -5,7 +5,7 @@ import WeatherDisplay from "./WeatherDisplay";
 import "./css/GetCityWeather.css";
 
 function GetCityWeather(props) {
-  const [cityId, setCityId] = useState(0);
+  const [cityId, setCityId] = useState(1);
   const [cityName, setCityName] = useState("");
   const [weatherData, setWeatherData] = useState([]);
 
@@ -77,6 +77,38 @@ function GetCityWeather(props) {
       }
     }
   }
+  function handleRefresh(e, id, index) {
+    console.log("The weather is refreshed");
+    axios
+      .get(
+        "http://api.openweathermap.org/data/2.5/weather?q=" +
+          e +
+          "&APPID=" +
+          props.appId
+      )
+      .then(res => {
+        const eachData = {
+          id: "",
+          city: "",
+          temp: null,
+          condition: "",
+          weatherId: null,
+          weatherDescription: "",
+          weatherIconId: ""
+        };
+        eachData.id = id;
+        eachData.city = res.data.name;
+        eachData.temp = parseInt(res.data.main.temp - 273); //Convert Kelvin to Celsius
+        eachData.condition = res.data.weather[0].main;
+        //eachData.condition = "updated";
+        eachData.weatherId = res.data.weather[0].id;
+        eachData.weatherDescription = res.data.weather[0].description;
+        eachData.weatherIconId = res.data.weather[0].icon;
+        const data = [...weatherData];
+        data[index] = eachData;
+        setWeatherData(data);
+      });
+  }
   return (
     <div>
       <Form className="search-bar-container">
@@ -98,6 +130,7 @@ function GetCityWeather(props) {
         weatherData={weatherData}
         handleClose={handleClose}
         handleImg={handleImg}
+        handleRefresh={handleRefresh}
       />
     </div>
   );
