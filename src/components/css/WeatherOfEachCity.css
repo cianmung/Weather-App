@@ -1,0 +1,33 @@
+.weather-display-box {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid transparent;
+  transition: 0.5s;
+}
+
+.weather-display-box:hover {
+  border: 1px solid red;
+}
+
+.closeButton {
+  float: right;
+}
+
+.closeButton:hover {
+  cursor: pointer;
+}
+
+.weather-display-img {
+  height: 20vw;
+  width: auto;
+}
+
+.weather-display-bottom-text-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-condition {
+  float: right;
+}
