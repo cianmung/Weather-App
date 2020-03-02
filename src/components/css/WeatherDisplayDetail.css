@@ -1,0 +1,31 @@
+.image-row-wrapper {
+  margin-top: 5vh;
+  display: flex;
+  justify-content: center;
+  height: 40%;
+}
+
+.image-row-img {
+  height: 30vh;
+  width: auto;
+}
+
+.weather-detail-title-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.weather-detail-container {
+  display: flex;
+  justify-content: center;
+}
+
+.weather-detail-container-first-column {
+  float: right;
+  font-weight: bold;
+}
+
+.weather-detail-container-second-column {
+  font-weight: bold;
+}

@@ -53,6 +53,11 @@
   justify-content: space-between;
 }
 
+.weather-icon-img {
+  border: 1px solid red;
+  height: 80px;
+  width: 80px;
+}
 .weather-condition {
   float: right;
 }

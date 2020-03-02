@@ -29,15 +29,14 @@ function WeatherOfEachCity(props) {
       return e + (e > 1 ? " seconds " : " second ");
     }
   }
-
   return (
     <React.Fragment>
       <div className="weather-display-box">
         <h5>
           {city}
-          <a className="closeButton" onClick={() => handleClose(id)}>
+          <p className="closeButton" onClick={() => handleClose(id)}>
             &times;
-          </a>
+          </p>
         </h5>
         <div className="weather-display-img-container">
           <Button
@@ -66,6 +65,14 @@ function WeatherOfEachCity(props) {
           {seconds > refreshTime && handleRefresh(city, id, index)}
           {seconds > refreshTime && setSeconds(0)}
         </p>
+        <Button
+          size="sm"
+          onClick={() => {
+            window.open("./WeatherDisplay/" + city);
+          }}
+        >
+          Details
+        </Button>
       </div>
     </React.Fragment>
   );

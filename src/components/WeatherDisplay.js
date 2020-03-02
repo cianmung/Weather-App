@@ -7,7 +7,13 @@ class WeatherDisplay extends Component {
     data: []
   };
   render() {
-    const { weatherData, handleClose, handleImg, handleRefresh } = this.props;
+    const {
+      weatherData,
+      handleClose,
+      handleImg,
+      handleRefresh,
+      showWeatherIcon
+    } = this.props;
     this.state.data = weatherData;
     return (
       <React.Fragment>
@@ -26,6 +32,7 @@ class WeatherDisplay extends Component {
                     handleImg={handleImg}
                     handleRefresh={handleRefresh}
                     index={index}
+                    showWeatherIcon={showWeatherIcon}
                   />
                 ))}
               </div>

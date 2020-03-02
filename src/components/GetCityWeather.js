@@ -41,7 +41,7 @@ function GetCityWeather(props) {
       );
     } else {
       if (weatherData.some(item => e === item.city)) {
-        alert("You have searched added " + e + ".");
+        alert("You have added " + e + ".");
       } else {
         axios
           .get(
@@ -99,8 +99,8 @@ function GetCityWeather(props) {
         eachData.id = id;
         eachData.city = res.data.name;
         eachData.temp = parseInt(res.data.main.temp - 273); //Convert Kelvin to Celsius
-        //eachData.condition = res.data.weather[0].main;
-        eachData.condition = "updated";
+        eachData.condition = res.data.weather[0].main;
+        //eachData.condition = "updated";
         eachData.weatherId = res.data.weather[0].id;
         eachData.weatherDescription = res.data.weather[0].description;
         eachData.weatherIconId = res.data.weather[0].icon;
@@ -108,6 +108,10 @@ function GetCityWeather(props) {
         data[index] = eachData;
         setWeatherData(data);
       });
+  }
+  function showWeatherIcon(iconId) {
+    const iconUrl = "http://openweathermap.org/img/wn/" + iconId + "@2x.png";
+    return iconUrl;
   }
   return (
     <div>
@@ -131,6 +135,7 @@ function GetCityWeather(props) {
         handleClose={handleClose}
         handleImg={handleImg}
         handleRefresh={handleRefresh}
+        showWeatherIcon={showWeatherIcon}
       />
     </div>
   );
