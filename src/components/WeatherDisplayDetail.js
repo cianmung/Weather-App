@@ -54,7 +54,7 @@ const WeatherDisplayDetail = props => {
         console.log(err);
         alert("Your city name is wrong. Please try again.");
       });
-  }, []);
+  }, [props.match.params.city]);
   function handleImg(weatherId) {
     if (weatherId >= 200 && weatherId < 300) {
       return "Thunderstorm.gif";
@@ -79,14 +79,14 @@ const WeatherDisplayDetail = props => {
 
     var hours = date.getHours();
     var minutes = date.getMinutes();
-    var secends = date.getSeconds();
+    //var secends = date.getSeconds();
 
     var ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
     hours = hours ? hours : 12;
     minutes = minutes < 10 ? "0" + minutes : minutes;
-    secends = secends < 10 ? "0" + secends : secends;
-    var strTime = hours + ":" + minutes + ":" + secends + " " + ampm;
+    //secends = secends < 10 ? "0" + secends : secends;
+    var strTime = hours + ":" + minutes + ampm;
 
     return strTime;
   }
@@ -94,7 +94,7 @@ const WeatherDisplayDetail = props => {
     <React.Fragment>
       <Row>
         <Col className="image-row-wrapper">
-          {currentWeatherData.weatherId != undefined && (
+          {currentWeatherData.weatherId !== undefined && (
             <Image
               className="image-row-img"
               src={require("../images/" +

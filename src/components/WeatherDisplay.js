@@ -14,7 +14,9 @@ class WeatherDisplay extends Component {
       handleRefresh,
       showWeatherIcon
     } = this.props;
-    this.state.data = weatherData;
+    let { data } = this.state;
+    data = weatherData;
+    this.state.data = data;
     return (
       <React.Fragment>
         <div className="weather-display-container">
@@ -24,7 +26,8 @@ class WeatherDisplay extends Component {
                 Weather conditions
               </h1>
               <div className="weather-of-each-city-container">
-                {this.state.data.map((each, index) => (
+                {//this.state.data.map((each, index) => (
+                weatherData.map((each, index) => (
                   <WeatherOfEachCity
                     key={each.id}
                     eachCityData={each}
